@@ -287,7 +287,7 @@ CAPTION "About Registry Editor X"
 FONT 9, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,68,86,50,14
-    CTEXT           "Registry Editor X v0.4\n\n(C)2019-2020 Pavel Yosifovich",IDC_STATIC,32,20,121,32
+    CTEXT           "Registry Editor X v0.4\n\n© 2019-2020 Pavel Yosifovich",IDC_STATIC,32,20,121,32
     ICON            IDR_MAINFRAME,IDC_STATIC,7,7,20,20,SS_CENTERIMAGE
     CONTROL         "<a>https://github.com/zodiacon/regeditx</a>",IDC_LINK,
                     "SysLink",WS_TABSTOP,33,54,120,14

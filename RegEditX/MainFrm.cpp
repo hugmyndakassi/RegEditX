@@ -172,11 +172,8 @@ LRESULT CMainFrame::OnCreate(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/
 
 	m_hWndClient = m_splitter.Create(m_hWnd, rcDefault, nullptr, WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN);
 
-	//m_pane.SetPaneContainerExtendedStyle(PANECNT_NOBORDER);
-	//m_pane.Create(m_splitter, _T("Local System"), WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN);
 	m_treeview.Create(m_splitter, rcDefault, nullptr, WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN |
 		TVS_HASLINES | TVS_LINESATROOT | TVS_HASBUTTONS | TVS_SHOWSELALWAYS | TVS_EDITLABELS, WS_EX_CLIENTEDGE);
-	//m_pane.SetClient(m_treeview);
 	m_treeview.SetExtendedStyle(TVS_EX_DOUBLEBUFFER | 0*TVS_EX_MULTISELECT, 0);
 	m_treeview.SetImageList(m_SmallImages, TVSIL_NORMAL);
 
@@ -315,15 +312,6 @@ LRESULT CMainFrame::OnViewTreePane(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hW
 	bool bShow = (m_splitter.GetSinglePaneMode() != SPLIT_PANE_NONE);
 	m_splitter.SetSinglePaneMode(bShow ? SPLIT_PANE_NONE : SPLIT_PANE_RIGHT);
 	UISetCheck(ID_VIEW_TREEPANE, bShow);
-
-	return 0;
-}
-
-LRESULT CMainFrame::OnTreePaneClose(WORD /*wNotifyCode*/, WORD /*wID*/, HWND hWndCtl, BOOL& /*bHandled*/) {
-	if (hWndCtl == m_pane.m_hWnd) {
-		m_splitter.SetSinglePaneMode(SPLIT_PANE_RIGHT);
-		UISetCheck(ID_VIEW_TREEPANE, 0);
-	}
 
 	return 0;
 }
